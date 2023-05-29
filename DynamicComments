@@ -1,0 +1,48 @@
+
+The idea here is to introduce a light-weight organized hypertext markup language for code comments that is readable by the IDE or text editor for dynamic comment display/presentation.
+
+There would be an organized hierarchy system built into the standard, allowing for organized overview of code, through comments, in something resembling both layers and headers.
+
+Comment visibility would be fully controllable, and comments can be written as progressive layers that can be dynamically "locked" to a block of code. 
+
+For example, a Title header would be the shortest descriptor, and while programming, may be the only visible comment. However, summary descriptions as well as lengthy explanations could be organizes as a different header, only visible in the IDE when expanded or set to visible.
+
+The IDE can create a "Table of Contents" out of these titles and headers to offer a new way to navigate code quickly and easily, with verbose human language.
+
+IDE can, and should, offer WSIWG rich text editing once a comment is created or entered.
+
+Comments would still start or be wrapped with:
+
+// Comment
+
+or
+
+/*
+Comment
+*/
+
+However, an additional asterisk on either can be used to signify a dynamic comment:
+
+//* Comment
+
+/**
+Comment
+**/
+
+A comment with basic HTML-like markup may look like:
+
+/* <b>Comment</b>
+
+An organized comment may look like:
+
+/**
+<T1>Major Comment Section</T1>
+<H1>The Need For Commenting</H1>
+<H2>The Future</H2>
+<IND>Some day, maybe a year from now, <b>future you</b> will curse past you for not doing diligent commenting, as you try to figure out exactly what you were trying to do at the time.
+<IMG, "KeyboardSmashMeme.png">
+<H2>Considering Others</H2>
+<IND>Maybe your code isn't the best, but maybe it's good enough to help someone else and you might want to share it one day, so comments will make it easier for others.
+<H3>
+**/
+
