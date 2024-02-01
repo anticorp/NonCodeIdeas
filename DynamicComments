@@ -1,4 +1,100 @@
 
+Okay fam, I smoked some good stuff and am kind of rethinking this, a bit. 
+  * This would have to be almost entirely an IDE feature.
+  * Largely affects how comments appear and collapse and expand, in the IDE.
+    - First impression, in dynamic mode with all features enabled:
+      ~ With all collapsed/hidden:
+        . Code all appears as normal, collapsed or not.
+        . Where comments would normally appear, as a full line or more, there is a single
+          thin custom-colored line with a 'comment' logo on it.
+        . Hovering over the logo, or other element, expands it over top the code, without
+          moving the source code. For 'view' mode.
+        . Clicking it unhides it, and it expands, moving the source code to fit.
+      ~ With all collapsed, but in Header-Mode view :
+        . A standard, or user-customized, single line text box, displaying either
+          a title, a custom header, source comment or a blurb, takes it's place
+          on a physical line of the code.
+        . Height of the text box is customizable, but default is the height of a
+          standard line of text.
+        . Is editable, as is, except for blurbs.
+        . Text: font, color, size, opacity, etc. all customizable individually or
+          by a global or local style.
+          ` individual styles can be globally overridden.
+        . Textbox: background, height, opacity, etc. are also customizable like
+          the text, with global and local styles.
+      ~ Fully expanded comment:
+        . Is any custom height and width, but must be anchored to at least one real-code line.
+        . Takes up as many real code lines as the Source comment does.
+          ` IE: The textbox may be a page high, but only occupies 3 line
+            numbers, if the source comment is 3 lines high.
+        . Is fully a WSIWYG rich textbox/editor, with image, video and
+          embedded-media support.
+        . You should technically be able to write a full dissertation
+          in one of these text boxes... But please don't.
+        . Has intellisense features.
+        . Allows you to insert a function signature into a comment, in any
+          format you wish [ie: void MyFunc(int anInt) or MyFunc(int anInt)
+          or MyFunc() ], or a Variable name, class name or anything like that
+          and it will be updated if/when that name or signature is changed
+          using the IDE's rename feature.
+  * A dynamic comment would contain a few different fields. There would be
+    a dynamic comment Title, a multi-media body, and a source comment body.
+      ~ Source comment body or dynamic comment body can be auto generated 
+        from each other.
+        . No matter what, there must be a source comment.
+  * The actual source file would only contain a plain human-readable comment.
+    - This comment, however, would have a single unique tag within it.
+      ~ The tag might look like <<<6#1@99$>>>.
+      ~ Comment in Source file might look like:  /* This is a Comment. <<<&3$2!33>>> */
+        . Optional, of course, but if enabled, allows the source to be opened in another IDE,
+          along with an xml or custom file, to get dynamic comments.
+        . Tag can be hidden, or is hidden by default, in the IDE, even when viewing
+          the source file without dynamic comments. More on 'views', below.
+        . However, as we can see, the original source file is not left without comments.
+        . This tag is what will link this comment line or lines and/or line shared with code
+          To the rich dynamic comments source file.
+      ~ The IDE would have easily accessible 'view' options, globally and for individual
+        source files. View options might be:
+        . View hard source - Show the comment exacty as it's being written to the source file on disk.
+        . Non-Dynamic View - Show raw comments, but not the unique Tag.
+  * Has Spell Check!
+  * Perhaps have a custom "intellisense" field in the dynamic comment, which can feed that comment
+    specifically to intellisense to use as the pop-up tool tip for the symbol below that comment,
+    which it already does when a comment exists there in the source file.
+    ~ If this custom field isn't set, it should just send the source comment, so it all works
+      the way it normally would if it was just a source file in the IDE.
+    ~ EVEN BETTER: With all of this said, a future feature might be to replace that boring text based
+      tool-tip pop-up with a custom Rich Text and multi-media text box popup instead.
+      . A built-in tool that would be really useful here, as well as with dynamic comments in general,
+        would be to integrate a .gif generator in the IDE.
+        ` Not necessarily just recording, but maybe more like recording a macro and then rendering that
+          macro as an animation.
+          ` To cut out delays or potential screen grabs of non-IDE related stuff.
+        ` This could be tutorial like animations, for showing things like how to
+          properly instantiate a class, or windows into where a variable is being
+          used, or however the programmer wants.
+        ` Remembering that none of this overhead gets compiled or loaded onto the source files,
+          and can quickly and easily be deleted without affecting the actual project.
+
+  Originally, as you can see below, I had concieved of this being a markup language type of thing,
+but the overriding problem I am having with comments in general, is that they're usually either too
+little or too much or both at the same time. Either they're not enough to properly explain something
+when you come back to it, or they are enough, but take up an ungodly amount of code-lines. Adding 
+markup would only increase the bloat of the source file comments, making them even harder to read
+and not actually solve the core problem of making comments the right size, everytime.
+  The ability to collapse block comments in IDEs is useful, but the problem is, when it is collapsed,
+it's not very helpful and it's still taking up a full code line, so we need something better than that.
+If we're still going to give up a code line for a collapsed comment, than why not make it more useful,
+by having it display a more contextual and customized comment in that state? Or, if I really just want to focus
+the code and don't want to give up any lines, than why not just put a non-distracting thin indicator
+there instead?
+  Yet, I still want more.
+
+
+------------- OLD -------------------
+
+
+
 The idea here is to introduce a light-weight organized hypertext markup language for code comments that is readable by the IDE or text editor for dynamic comment display/presentation.
 
 There would be an organized hierarchy system built into the standard, allowing for organized overview of code, through comments, in something resembling both layers and headers.
